@@ -9,15 +9,17 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// Generate password
 function generatePassword() {
-  var pw = "";
+  var pw = [];
   var pool = [];
-
+  
   let lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   let upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   let number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   let special = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "\\", "/", ":", ";", "\"", "'", "<", ">", ",", ".", "?"];
-
+  
+  // Length
   var length = prompt("How many characters?");
   if (length < 8) {
     alert("Password is too short");
@@ -31,26 +33,37 @@ function generatePassword() {
     alert("Please input a number");
     return "Generate again"
   }
-
+  
+  // Character types
   var allowLow = confirm("Allow lowercase characters?");
   if (allowLow == true) {
-    pool.push(lower);
+    pool = pool.concat(lower);
   }
   var allowUpp = confirm("Allow uppercase characters?");
   if (allowUpp == true) {
-    pool.push(upper);
+    pool = pool.concat(upper);
   }
   var allowNum = confirm("Allow numbers?");
   if (allowNum == true) {
-    pool.push(number);
+    pool = pool.concat(number);
   }
   var allowSpec = confirm("Allow special?");
   if (allowSpec == true) {
-    pool.push(special);
+    pool = pool.concat(special);
   }
   
+  // Appending from pool randomly
+  for (i=0; i < length; i++) {
+    console.log("hi");
+    var x = pool[Math.floor(Math.random() * pool.length)];
+    pw.push(x);
+  }
+
+  // Display password
+  pw = pw.join("");
   return pw;
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
