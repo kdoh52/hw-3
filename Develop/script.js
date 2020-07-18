@@ -51,6 +51,10 @@ function generatePassword() {
   if (allowSpec == true) {
     pool = pool.concat(special);
   }
+  if (pool.length < 1) {
+    alert("Must choose at least one character type")
+    return "Generate again"
+  }
   
   // Appending from pool randomly
   for (i=0; i < length; i++) {
