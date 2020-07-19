@@ -36,19 +36,19 @@ function generatePassword() {
   
   // Character types
   var allowLow = confirm("Allow lowercase characters?");
-  if (allowLow == true) {
+  if (allowLow === true) {
     pool = pool.concat(lower);
   }
   var allowUpp = confirm("Allow uppercase characters?");
-  if (allowUpp == true) {
+  if (allowUpp === true) {
     pool = pool.concat(upper);
   }
   var allowNum = confirm("Allow numbers?");
-  if (allowNum == true) {
+  if (allowNum === true) {
     pool = pool.concat(number);
   }
   var allowSpec = confirm("Allow special characters?");
-  if (allowSpec == true) {
+  if (allowSpec === true) {
     pool = pool.concat(special);
   }
   if (pool.length < 1) {
@@ -57,7 +57,7 @@ function generatePassword() {
   }
   
   // Appending from pool randomly
-  for (i=0; i < length; i++) {
+  for (var i=0; i < length; i++) {
     var x = pool[Math.floor(Math.random() * pool.length)];
     pw.push(x);
   }
