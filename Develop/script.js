@@ -27,11 +27,11 @@ function generatePassword() {
   }
   if (length > 128) {
     alert("Password is too long");
-    return "Generate again"
+    return "Generate again";
   }
   if (isNaN(length)) {
     alert("Please input a number");
-    return "Generate again"
+    return "Generate again";
   }
   
   // Character types
@@ -47,18 +47,17 @@ function generatePassword() {
   if (allowNum == true) {
     pool = pool.concat(number);
   }
-  var allowSpec = confirm("Allow special?");
+  var allowSpec = confirm("Allow special characters?");
   if (allowSpec == true) {
     pool = pool.concat(special);
   }
   if (pool.length < 1) {
-    alert("Must choose at least one character type")
-    return "Generate again"
+    alert("Must choose at least one character type");
+    return "Generate again";
   }
   
   // Appending from pool randomly
   for (i=0; i < length; i++) {
-    console.log("hi");
     var x = pool[Math.floor(Math.random() * pool.length)];
     pw.push(x);
   }
@@ -67,7 +66,6 @@ function generatePassword() {
   pw = pw.join("");
   return pw;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
