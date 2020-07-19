@@ -1,7 +1,3 @@
----
-permalink: /index.html
----
-
 # 03 JavaScript: Password Generator
 
 This website is intended to generate secure passwords according to user preferences for length and character types.
